@@ -12,13 +12,15 @@ function doPost(e) {
       data.current ?? "",
       data.power ?? "",
       data.energy ?? "",
+      data.frequency ?? "",
+      data.pf ?? "",
       data.status ?? "NORMAL"
     ];
 
     sheet.appendRow(row);
 
     return ContentService
-      .createTextOutput(JSON.stringify({ ok: true, saved: row }))
+      .createTextOutput(JSON.stringify({ ok: true }))
       .setMimeType(ContentService.MimeType.JSON);
 
   } catch (err) {
